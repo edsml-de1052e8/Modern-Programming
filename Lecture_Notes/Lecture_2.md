@@ -96,4 +96,23 @@ Dependencies
 Python package typically has its own dependencies, documented using a `requirements.txt` file which can be pip installed or using conda with `conda environment.yml`
 If you don’t pass a setup.py, pip scans PyPI the python package index
 
+---
+
+Assessment: Slides on Automatons
+
+Cellular automaton: collection of boxes holding a variable & simple mathematical rule to update them 
+No advanced physical knowledge needed
+Abelian sandpile
+Cellular automaton with 2D grid, array of boxes on a table
+Boxes all hve piles of sands, if they are too tall they fall and lose sand
+As each pile topples sand goes to the edges or off
+
+Algorithm might look like:
+Check if any too-tall piles left (eg. (h>3).any()
+Doesn’t matter what order you do toppling in result is the same
+Lorenz 96 model is a toy model of the atmosphere 
+Every new value, takes old value + multiple of old number + multiples 100* old one
+
+
+
 
