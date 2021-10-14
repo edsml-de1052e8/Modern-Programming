@@ -72,3 +72,42 @@ example: ```unittest_example.py```
 Code coverage
 - 100% code coverage is useful but only means every line in isolation not that every possible code logic branch has been tested 
 - Often becomes a tool of managers (like lines of code)
+
+Taxonomy of tests:
+1. unit tests: small, fast single unit
+2. integreation tests which combine units together
+3. Feature/functionality testing
+4. Regression testing
+5. Other stuff: GUIs, business logic
+
+When doing unit tests, good to use fake inputs: Mocking up inputs
+Tests need input
+
+**Automatic documentation**
+Documentation is written for 3 board groups of people
+1. users: don't really care how it works, care what it does
+2. user-developers: build what they need
+3. Developers: Make the software but don't use it
+
+For all of these groups, the best documentation is in docstring
+
+**Sphinx**
+- Sphinx convert docstring into manuals or web pages using reStructured Text mark up
+- to install it: need to import sys and os --> lecture 4 info 
+
+- Format:
+
+#########
+
+Title
+
+#########
+
+
+---- heading ----
+
+
+Can do that in VSCode Terminal and build an entire html documentation just with ```sphinx-build -b html docs docs/html```
+then you will get an html folder at the same +1 level -> click on folder and open html doc to visualise in Chrome. 
+
+
