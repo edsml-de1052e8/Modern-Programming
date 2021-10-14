@@ -1,0 +1,40 @@
+import numpy as np
+
+#i: the rows
+#j: the columns
+#initial_state: input between 0-8
+#n: time state
+
+
+initial_state= []
+
+def conway_1(initial_state,n):
+    state = np.array(initial_state, int)
+    
+    for n in range(0,8):
+        i= state.shape[0] #tbd
+        j=state.shape[1]
+        condition = True #value of 1:alive
+        
+        while condition:
+            condition = False #value of 0:dead
+        
+#        return i,j
+    life_grid= np.array([[i-1,j-1],[i-1,j],[i-1,j+1],
+                     [i,j-1],[i,j],[i,j+1],
+                    [i+1,j-1],[i+1,j],[i+1,j+1]])
+    
+    neighbours= life_grid - [i,j]
+    
+    for n in range(0, len(life_grid)):    
+        sum_neighbours = sum + life_grid[n];    
+    
+    if sum_neighbours==(int(0,1,4,5,6,7,8)):
+        return False
+                    
+        
+        if sum_neighbours==(int(2,3)):
+                return True
+   
+                      
+    
