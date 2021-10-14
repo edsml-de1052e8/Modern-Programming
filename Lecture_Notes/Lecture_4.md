@@ -21,7 +21,8 @@ Exercise One
 - bottom left corner, if you feed an array to the pent func then it will print the output to visualise it
 - Even with smaller array there will be a cross pattern 
 
---
+
+----
 
 ***Test Driven Development (TDD)***
 
@@ -34,3 +35,40 @@ Exercise One
 - Deal with them first: spend energy on the hard part
 
 
+- Good tests for numerical methods: they are fast, complete, reliable and maintainable (doscstrings, comments etc
+
+**Packages for tests**
+
+- Doctests: ```doctest``` library is part of standard library. It allows you to write simple tests which are also self documenting examples 
+```doctest.testfile``` (
+
+Can run test by running module as script ``` python -m docstring_test``` in command line 
+
+Perks of doctest:
+- simple
+- clear
+- tests example
+- easy to maintain (can just rerun the example) 
+
+Bad points:
+- fragile
+- still adds maintenance cost 
+- only does string comparisons
+- can't test what you can't write 
+- Even if you change one character then test goes crazy 
+
+```Unitesttest``` module:
+- another inbuilt module, framework for generic testing allowing you to do 3 stages : Set Up, Run and Tear Down (clean up)
+example: ```unittest_example.py```
+- Good and easy to set up but syntax is quite complicated 
+
+```Pytest``` package:
+- similar to unittest but basic mode is easier to set up 
+- install the package (not built in): ```pip install pytest``` in terminal
+- Can write in everyday format using things like asserts or '=='
+- tests should be ready to error on failure
+- tool automatically searches for files & directories with test in the name
+
+Code coverage
+- 100% code coverage is useful but only means every line in isolation not that every possible code logic branch has been tested 
+- Often becomes a tool of managers (like lines of code)
