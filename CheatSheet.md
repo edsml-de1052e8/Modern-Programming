@@ -93,6 +93,40 @@ Slicing: to extract indices, in the form slice(start, stop, step)
 
 ```np.concatenate``` : function to combine arrays a1 and a2 to a4 array!
 
+```np.random.ranf(10)``` : creates an array of 10 random real numbers
+
+```np.random.randint(0, high=5, size=25).reshape(5,5)``` : creates a 2D array (5x5) reshaped matrix from 1D array of 25 random integers between 0 and 5
+
+```np.random.binomial (5,0.5, size=25)``` : generates random numbers from binomial distribution with 25 numbers.
+
+```np.savetxt('savedata.txt', np.stack((x,y), axis=1), header='DATA', \footer ='END', fmt=%d %1.4f') !cat savedata.txt```
+
+```p=np.loadtxt('savedata.txt')``` reload data to an array
+
+Using the numpy.linalg module: 
+import numpy.linalg as la
+
+```n=la.norm(B)```: computes usual quantities and return one of eight normal matrix norms or an infinte number of vector norms
+
+```la.solve(A,B)``` solves linear systems 
+
+```la.det(A)``` : computes the determinant of an array
+
+```A_inv= la.inv(A)```: inverts matrices, though high computational cost
+
+```eival= la.eig(A)```: computes eigen decomposition of a square matrix
+
+```np.power```: raises the first elements of an array to the power of the elements in the second array.
+
+```np.exp```: calculates the exponential of all elements in the array.
+
+**Performance Assessment** 
+
+```import timeit```
+```%timeit -n <iteration> -r <repeats> <code_snippet> ```
+
+By default timeit loops over your code 3 times and outputs the best time, also tells how many iterations it ran the code per loop.
+
 
 
 
