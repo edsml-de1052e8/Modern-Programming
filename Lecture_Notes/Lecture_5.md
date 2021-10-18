@@ -108,15 +108,48 @@ Flask - Python Web Apps: initially an April Fools' Joke, third party app so must
 
 ```from flask imort Flask```
 ``` app= Flask(__name__) ```
-``` @app.route("/hello") 
-def my_func():
-   return "<b.Hello,/b> World!"```
+``` @app.route("/hello") ```
+
+```def my_func():```
+   ```return "<b.Hello,/b> World!"```
 
 
 Grabs flask module, creates a web app using the flask class, requires a name. @app is a decorator around the function. Whenever someone connects to Flask app and calls hello the result is calling that function.
 Need to call the app ```app.py```
 Set running (in simple test server) with ```flask run```.
-Look at 
+
+The decorator is part of Python syntax and allows to apply one function to another to get the resulting name. So takes 2nd function as input and returns new function which we've done extra work on. Wraps the entir function so as to print the arguments.
+
+Variables in path names for Flask:
+- def my_func (input_name) can be added in the return section: 
+```@app.route("/name/<input_name>/age/<int:input_age>")
+def my_func(input_name, input_age):
+    return f"<b>Hello</b> {input_name}! Looking good for {input_age}!"```
+
+client_name= request.args.get(...default=) is a dictionary so use same syntax as for dictionary eg. default=
+
+Similarly, information passed in in query parameters can be used via a dictionary lookup
+
+from flask import request
+clients = ["Tom Cruise", "Halle Berry"]
+
+@app.route("/client")
+def my_func():
+    client_name = request.args.get('name', default=None)
+    if client_name in clients:
+        return f"<b>Hello</b> {client_name}"
+    else:
+        return f"Are you in the right place"
+Have a look in the examples in the lecture04 folder, after which, it's time to start trying the exercises.
+
+NB: you can have multiple .py files but really try to have everything as module.
+
+
+
+
+
+
+
 
 
 
