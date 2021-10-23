@@ -90,7 +90,14 @@ Step 2:
   
   
   
+  #### Adding more simple functions: how does ```numpy``` compute pi, sin(x) etc. 
   
+  
+  First in order to implement these formulas, we'll need to write a factorial function ( or a square root function but using numpy.sqrt) 
+  
+  To add new file, ```vim filename``` paste the content with the decorator in a new py file when the tab opens and push changes.
+  
+  ##Time stamp: 28min
   
   
   
