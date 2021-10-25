@@ -2,7 +2,76 @@
 
 
 Representation of real numbers
-Every real number $x \in \mathbb{R}$ is a point on the real axis.
+Every real number x E R is a point on the real axis.
+
+
+**Base 10 aka Decimal Representation**
+
+x= 28763.437 
+
+
+*Integer part:*  \begin{split} 28\,763 & = 20\,000 + 8\,000 + 700 + 60 + 3 \
+
+  & = 2 \times 10^{4} + 8 \times 10^{3} + 7 \times 10^{2} + 6 \times 10^{1} + 3 \times 10^{0}
+\end{split} 
+
+*Fractional part:* 
+
+ \begin{split} 0.437 & = \frac{4}{10} + \frac{3}{100} + \frac{7}{1\,000}\
+
+& = 4 \times 10^{-1} + 3 \times 10^{-2} + 7 \times 10^{-3}
+\end{split} 
+
+
+So it it is divided into two parts:  the fractional and the integer part. 
+
+
+General decimal (base-10) expression: 
+
+an an-1 a1 . b1 b2 b3 = sum of 0ai x 10^i + sum 1bi x 10^-i
+
+- with an: the integer part 
+- . the decimal point
+- b1 b2 b3... : the fractional part
+
+**Example binary (base-2) representation**
+
+NB: to differentiate decimals from binary base 2, we use a 2 subscript eg. (1011.101)2 not to interpret it as 'one thousand and eleven point one zero one'. 
+
+Integer part:
+ \begin{split} (1\,011)_{2} & = 1 \times 2^{3} + 0 \times 2^{2} + 1 \times 2^{1} + 1 \times 2^{0}\
+
+       & = (11)_{10}
+\end{split}
+
+Fractional part: 
+
+\begin{split} (0.101)_{10} & = \frac{1}{2} + \frac{0}{4} + \frac{1}{8}\
+
+       & = 1 \times 2^{-1} + 0 \times 2^{-2} + 1 \times 2^{-3}\\
+       & = (0.625)_{10}
+\end{split} 
+
+
+In Python you write this in the following:
+
+```x= 0b1011.101```
+which will give decimals as outputs 
+
+**General binary (base-2) expression**
+
+The key here is that you sum the integer part x 2. You also add it to the fractional part x 2. 
+
+
+- integer part: an an -1 a1 a0
+- radix point: .
+- fractional part: b1 b2 b3
+
+Both the integer part and fractional part are comprised between 0 and 1 and can be equal to 0 and 1. So 0 =< ai, b1 =< 1 
+
+
+
+
 
 ### Exercise 1:
 
@@ -11,13 +80,26 @@ bianry number -> if "string" has a point (so it is decimal) then return the deci
 **General base-B expression**
 
 
-```For $\beta &gt; 10$, we need additional symbols for $d_{i} &gt; 9$. For instance, in hexadecimal: $0, 1, 2, \ldots, 9, \mathrm{a}=10, \mathrm{b}=11, \mathrm{c}=12, \mathrm{d}=13, \mathrm{e}=14, \mathrm{f}=15$.
+```For $\beta &gt; 10$, we need additional symbols for $d_{i} &gt; 9$. For instance, in hexadecimal: $0, 1, 2, \ldots, 9, \mathrm{a}=10, \mathrm{b}=11, \mathrm{c}=12, \mathrm{d}=13, \mathrm{e}=14, \mathrm{f}=15$.```
 
-int('11111100101', base=2) == 0b11111100101 == 2021  # binary
+```int('11111100101', base=2) == 0b11111100101 == 2021  # binary```
 
-int('7e5', base=16) == 0x7e5 == 2021  # hexadecimal
+```int('7e5', base=16) == 0x7e5 == 2021  # hexadecimal```
 
-int('3745', base=8) == 0o3745 == 2021  # octal```
+```int('3745', base=8) == 0o3745 == 2021  # octal```
+
+
+So to recap:
+
+- Binary: has a base Beta of 2
+- Decimal: has a base Beta of 10 
+- Octal: has a base Beta of 8
+- Hexadecimal: has a base Beta of 16 
+
+- For Betas/bases >10 we need extra symbols for d >9. For instance in hexadecimal:
+0, 1, 2, ..., 9, a=10, b=11, c=12, d=13, e=14, f=15
+
+
 
 **Base conversion**
 
@@ -28,13 +110,14 @@ can write instead of polynomial in this manner:
 
 Integer part
 We can write an integer $x$ in nested polynomial form:
-$$
+
+
 \begin{split}
 x &amp;= (c_{n}c_{n-1} \ldots c_{1}c_{0})_{\beta} \\
   &amp;= \sum_{i=0}^{n} c_{i} \times \beta^{i} \\
   &amp;= c_{0} + \beta(c_{1} + \beta (c_{2} + \beta (\ldots)))
 \end{split}
-$$
+
 Dividing $x$ by $\beta$ results in remainder $c_{0}$ and quotient $c_{1} + \beta (c_{2} + \beta (\ldots))$.
 By repeating the division we obtain digits $c_{0}$, $c_{1}$, $c_{2}$, etc.
 
@@ -63,7 +146,7 @@ Each time you multiple beta, it moves number one step to the right.
 
 NB: be careful not to end in infinite loop eg. with fractions or pi. So use the ```ndigits``` functions to limit the loop. 
 
-**octal -> decimal **
+**Octal -> decimal **
 
 In octal decimal system the numbers are from 0-7. Can convert to binary form by replacing ??
 
