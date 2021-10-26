@@ -121,6 +121,45 @@ For instance, you cannot override the variables in the current frame with the sa
 Not this is different from dropping into embedded IPython where you can override existing variables.
 
 
+**Debugging segmentation faults using gdb**
+
+Segmentation faults: memory access error usually. 
+
+If you have a segmentation fault, you cannot debug it with pdb, as it crashes the Python interpreter before it can drop in the debugger. Similarly, if you have a bug in C code embedded in Python, pdb is useless. For this we turn to the gnu debugger, gdb, available on Linux, MacOS and Windows.
+
+Note:
+
+There are many ways in which gdb can be installed, but among the simplest is through Anaconda. From within a suitable enviroment it can be installed via conda install -c conda-forge gdb. Then type gdb --version to check it has installed correctly. The main branch of gdb does not appear to support the new Mac M1 chips and hence we're going to log into a Ubuntu machine to demonstate it's use.
+
+WARNING: gdb can be fiddly to set up: don't waste too much time on the example below unless your super-keen to get it running right away. pdb will be sufficient for the assessment this week.
+
+
+Before we start with gdb, let us add a few Python-specific tools to it. For this we add a few macros to our ~/.gdbinit. The optimal choice of macro depends on your Python version and your gdb version. A simplified version has been added in .gdbinit located in the files folder, but feel free to read DebuggingWithGdb.
+
+Some of the paths specified in .gdbinit provided are specific to my machine. You'll need to modify these.
+
+For a list of Python-specific commands defined in the .gdbinit, read the source of this file.
+
+To debug with gdb the Python script segfault.py we start gdb via
+
+```gdb --args python```
+
+Gdb is very versatile, can use with C and C++ for example. 
+
+
+### Debugging distributed (e.g. MPI) computations
+
+Later in this course you will encounter the ```mpi4py```
+
+(https://mpi4py.readthedocs.io/en/stable/) package. Debugging MPI based programs can be a real pain and tools such as `pdb` are often less useful. Utilising manual debugging techniques in tandem with tools such as [tmpi](https://github.com/Azrael3000/tmpi) can however be an effective method.
+
+
+
+
+
+
+
+
 
 
 
